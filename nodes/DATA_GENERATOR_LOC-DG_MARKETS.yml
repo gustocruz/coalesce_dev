@@ -1,0 +1,32 @@
+steps:
+  DG_MARKETS-19:
+    operation:
+      database: ""
+      dataset: ""
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 80
+              stepCounter: 19
+            config: {}
+            dataType: VARCHAR(10)
+            defaultValue: ""
+            description: ""
+            name: MARKET_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_MARKETS') }}
+      name: DG_MARKETS
+      schema: ""
+      sqlType: Source
+      table: DG_MARKETS
+      type: sourceInput
+    stepCounter: "19"

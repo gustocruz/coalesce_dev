@@ -1,0 +1,82 @@
+steps:
+  STG_DG_ENTITY_IDS-62:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: "insert into
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.\"STG_DG_ENTITY_IDS\"\r
+
+          with CTE as  \r
+
+          (  \r
+
+          \ select 1 as entity_id  \r
+
+          \ union all  \r
+
+          \ select entity_id +1 \r
+
+          \   from CTE\r
+
+          \      ,
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS GP \r
+
+          \  where entity_id < GP.NUMBER_OF_ENTITIES \r
+
+          ) \r
+
+          select CTE.entity_id\r
+
+          \  from CTE;"
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 439
+              stepCounter: "62"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: where 1=0
+            name: STG_DG_ENTITY_IDS
+            noLinkRefs: []
+      name: STG_DG_ENTITY_IDS
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "62"

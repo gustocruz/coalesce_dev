@@ -1,0 +1,96 @@
+steps:
+  DATE-83:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: COALESCE_DEV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 614
+              stepCounter: "83"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 605
+                    stepCounter: "82"
+                transform: ""
+          - columnReference:
+              columnCounter: 615
+              stepCounter: "83"
+            dataType: NUMBER(4,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE_YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 606
+                    stepCounter: "82"
+                transform: ""
+          - columnReference:
+              columnCounter: 616
+              stepCounter: "83"
+            dataType: NUMBER(2,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE_MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 607
+                    stepCounter: "82"
+                transform: ""
+          - columnReference:
+              columnCounter: 618
+              stepCounter: "83"
+            dataType: NUMBER(2,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE_DAY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 609
+                    stepCounter: "82"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_DATE_DIMENSION: "82"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_DATE_DIMENSION
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_DATE_DIMENSION') }}
+                "STG_DG_DATE_DIMENSION"
+            name: DATE
+            noLinkRefs: []
+      name: DATE
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "83"

@@ -1,0 +1,68 @@
+steps:
+  STG_DG_CHANNELS-41:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 279
+              stepCounter: 41
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHANNEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 275
+                    stepCounter: "40"
+                transform: ""
+          - columnReference:
+              columnCounter: 280
+              stepCounter: 41
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHANNEL_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 276
+                    stepCounter: "40"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DG_CHANNELS: "40"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_CHANNELS
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_CHANNELS') }} "DG_CHANNELS"
+            name: STG_DG_CHANNELS
+            noLinkRefs: []
+      name: STG_DG_CHANNELS
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "41"

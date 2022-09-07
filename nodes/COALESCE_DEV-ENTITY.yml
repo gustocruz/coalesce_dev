@@ -1,0 +1,108 @@
+steps:
+  ENTITY-66:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: COALESCE_DEV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 455
+              stepCounter: "66"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 628
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 456
+              stepCounter: "66"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 534
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 458
+              stepCounter: "66"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 536
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 459
+              stepCounter: "66"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 539
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 460
+              stepCounter: "66"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PARENT_RETAILER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_ENTITY: "74"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_ENTITY
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_ENTITY') }}
+                "STG_DG_ENTITY"
+            name: ENTITY
+            noLinkRefs: []
+      name: ENTITY
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "66"

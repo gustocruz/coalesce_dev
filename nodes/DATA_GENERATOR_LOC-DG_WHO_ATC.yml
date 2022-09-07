@@ -1,0 +1,107 @@
+steps:
+  DG_WHO_ATC-21:
+    operation:
+      database: ""
+      dataset: ""
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87
+              stepCounter: 21
+            config: {}
+            dataType: VARCHAR(16)
+            defaultValue: ""
+            description: ""
+            name: ATC_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 88
+              stepCounter: 21
+            config: {}
+            dataType: VARCHAR(128)
+            defaultValue: ""
+            description: ""
+            name: ATC_NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89
+              stepCounter: 21
+            config: {}
+            dataType: NUMBER(10,2)
+            defaultValue: ""
+            description: ""
+            name: DDD
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 90
+              stepCounter: 21
+            config: {}
+            dataType: VARCHAR(16)
+            defaultValue: ""
+            description: ""
+            name: UOM
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 91
+              stepCounter: 21
+            config: {}
+            dataType: VARCHAR(30)
+            defaultValue: ""
+            description: ""
+            name: ADM_R
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 92
+              stepCounter: 21
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: NOTE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_WHO_ATC') }}
+      name: DG_WHO_ATC
+      schema: ""
+      sqlType: Source
+      table: DG_WHO_ATC
+      type: sourceInput
+    stepCounter: "21"

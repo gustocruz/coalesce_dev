@@ -1,0 +1,110 @@
+steps:
+  PRODUCT-25:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 1
+      locationName: COALESCE_DEV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 115
+              stepCounter: 25
+            dataType: NUMBER(38)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PRODUCT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 595
+                    stepCounter: "24"
+                transform: ""
+          - columnReference:
+              columnCounter: 116
+              stepCounter: 25
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 109
+                    stepCounter: "24"
+                transform: ""
+          - columnReference:
+              columnCounter: 117
+              stepCounter: 25
+            dataType: VARCHAR(30)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PACKAGING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 110
+                    stepCounter: "24"
+                transform: ""
+          - columnReference:
+              columnCounter: 118
+              stepCounter: 25
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SCIENTIFIC_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 111
+                    stepCounter: "24"
+                transform: ""
+          - columnReference:
+              columnCounter: 119
+              stepCounter: 25
+            dataType: NUMBER(5,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 112
+                    stepCounter: "24"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_PRODUCT_PRE: "24"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_PRE
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_PRODUCT_PRE') }}
+                "STG_DG_PRODUCT_PRE"
+            name: PRODUCT
+            noLinkRefs: []
+      name: PRODUCT
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "25"

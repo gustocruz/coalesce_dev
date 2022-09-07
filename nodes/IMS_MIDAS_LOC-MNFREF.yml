@@ -1,0 +1,94 @@
+steps:
+  MNFREF-69:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: IMS_MIDAS_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 479
+              stepCounter: "69"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: MNF_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 531
+                    stepCounter: "73"
+                transform: ""
+          - columnReference:
+              columnCounter: 480
+              stepCounter: "69"
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MNF_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 522
+                    stepCounter: "73"
+                transform: ""
+          - columnReference:
+              columnCounter: 481
+              stepCounter: "69"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PANEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 299
+                    stepCounter: "44"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_MNFREF_PRE: "73"
+              STG_DG_PANELS: "44"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PANELS
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_MNFREF_PRE
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_PANELS') }}
+                \"STG_DG_PANELS\" \r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_MNFREF_PRE') }} \"STG_DG_MNFREF_PRE\"\r
+
+                WHERE \"STG_DG_PANELS\".\"ISO2_CODE\" =
+                \"STG_DG_MNFREF_PRE\".\"COUNTRY_ISO2_CODE\"\r
+
+                AND \"STG_DG_PANELS\".\"MNF_TEMPLATE_ID\" =
+                \"STG_DG_MNFREF_PRE\".\"MNF_TEMPLATE_ID\""
+            name: MNFREF
+            noLinkRefs: []
+      name: MNFREF
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "69"

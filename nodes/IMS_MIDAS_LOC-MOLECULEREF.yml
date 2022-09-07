@@ -1,0 +1,68 @@
+steps:
+  MOLECULEREF-48:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 3
+      locationName: IMS_MIDAS_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 327
+              stepCounter: 48
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: MOL_LIST_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 322
+                    stepCounter: "47"
+                transform: ""
+          - columnReference:
+              columnCounter: 328
+              stepCounter: 48
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOL_LIST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 323
+                    stepCounter: "47"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_MOLECULES: "47"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_MOLECULES
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_MOLECULES') }}
+                "STG_DG_MOLECULES"
+            name: MOLECULEREF
+            noLinkRefs: []
+      name: MOLECULEREF
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "48"

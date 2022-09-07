@@ -1,0 +1,92 @@
+steps:
+  DG_ENTITY_DEFINITION-70:
+    operation:
+      database: ""
+      dataset: ""
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 493
+              stepCounter: 70
+            config: {}
+            dataType: VARCHAR(70)
+            defaultValue: ""
+            description: ""
+            name: ENTITY_BASE_NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 494
+              stepCounter: 70
+            config: {}
+            dataType: VARCHAR(10)
+            defaultValue: ""
+            description: ""
+            name: MARKET_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 495
+              stepCounter: 70
+            config: {}
+            dataType: VARCHAR(10)
+            defaultValue: ""
+            description: ""
+            name: ENTITY_TYPE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 496
+              stepCounter: 70
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: ALLOW_CHILDS
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 497
+              stepCounter: 70
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: IS_ENABLED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_ENTITY_DEFINITION') }}
+      name: DG_ENTITY_DEFINITION
+      schema: ""
+      sqlType: Source
+      table: DG_ENTITY_DEFINITION
+      type: sourceInput
+    stepCounter: "70"

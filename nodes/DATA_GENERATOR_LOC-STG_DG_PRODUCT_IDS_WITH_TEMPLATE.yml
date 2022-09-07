@@ -1,0 +1,71 @@
+steps:
+  STG_DG_PRODUCT_IDS_WITH_TEMPLATE-53:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 369
+              stepCounter: "53"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PROD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 248
+                    stepCounter: "38"
+                transform: ""
+          - columnReference:
+              columnCounter: 370
+              stepCounter: "53"
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEMPLATE_PROD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CEIL(1 + uniform(0::float, 1::float, random())*(SELECT COUNT(1) FROM
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_PRODUCT_DEFINITION
+                  PD,
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS
+                  GP where GP.MARKET_CODE = PD.MARKET_CODE)-1,0)
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_PRODUCT_IDS: "38"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_IDS
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_PRODUCT_IDS') }}
+                "STG_DG_PRODUCT_IDS"
+            name: STG_DG_PRODUCT_IDS_WITH_TEMPLATE
+            noLinkRefs: []
+      name: STG_DG_PRODUCT_IDS_WITH_TEMPLATE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "53"

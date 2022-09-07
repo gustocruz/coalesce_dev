@@ -1,0 +1,101 @@
+steps:
+  STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID-56:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 393
+              stepCounter: "56"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NFC123_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 237
+                    stepCounter: "36"
+                transform: ""
+          - columnReference:
+              columnCounter: 394
+              stepCounter: "56"
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NFC123_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 238
+                    stepCounter: "36"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 395
+              stepCounter: "56"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: NFC3_TEMPLATE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: row_number() over (partition by
+                  substr(DG_EPHMRA_NFC123.NFC123_CODE,0,2) order by
+                  DG_EPHMRA_NFC123.NFC123_NAME ASC)
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DG_EPHMRA_NFC123: "36"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_EPHMRA_NFC123
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_PRODUCT_DEFINITION
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'DG_EPHMRA_NFC123') }}
+                \"DG_EPHMRA_NFC123\"\r
+
+                where length(DG_EPHMRA_NFC123.NFC123_CODE)>=3\r
+
+                \  AND substr(DG_EPHMRA_NFC123.NFC123_CODE, 0,
+                2) in (SELECT DISTINCT NFC_CODE FROM {{
+                ref('DATA_GENERATOR_LOC', 'DG_PRODUCT_DEFINITION') }}
+                \"DG_PRODUCT_DEFINITION\")"
+            name: STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID
+            noLinkRefs: []
+      name: STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "56"

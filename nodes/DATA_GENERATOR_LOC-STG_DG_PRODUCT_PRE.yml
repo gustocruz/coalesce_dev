@@ -1,0 +1,311 @@
+steps:
+  STG_DG_PRODUCT_PRE-24:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 108
+              stepCounter: 24
+            dataType: NUMBER(38)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 369
+                    stepCounter: "53"
+                transform: ""
+          - columnReference:
+              columnCounter: 109
+              stepCounter: 24
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 373
+                    stepCounter: "54"
+                transform: ""
+          - columnReference:
+              columnCounter: 110
+              stepCounter: 24
+            dataType: VARCHAR(30)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PACKAGING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 374
+                    stepCounter: "54"
+                transform: ""
+          - columnReference:
+              columnCounter: 111
+              stepCounter: 24
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SCIENTIFIC_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 375
+                    stepCounter: "54"
+                transform: ""
+          - columnReference:
+              columnCounter: 112
+              stepCounter: 24
+            dataType: NUMBER(5,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: STG_DG_PRODUCT_WITH_TEMPLATE.MIN_PRICE + uniform(0::float, 1::float,
+                  random())*
+                  (STG_DG_PRODUCT_WITH_TEMPLATE.MAX_PRICE-STG_DG_PRODUCT_WITH_TEMPLATE.MIN_PRICE)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 363
+              stepCounter: "24"
+            config: {}
+            dataType: varchar(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ATC3_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 382
+                    stepCounter: "54"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 365
+              stepCounter: "24"
+            config: {}
+            dataType: varchar(2)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: NFC2_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 391
+                    stepCounter: "54"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 396
+              stepCounter: "24"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: NFC3_TEMPLATE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: "CEIL(\r
+
+                  \    1 + uniform(0 :: float, 1 :: float,
+                  random()) *(\r
+
+                  \      SELECT\r
+
+                  \        COUNT(1)\r
+
+                  \      FROM\r
+
+                  \        \"DATA_GENERATOR_DB\".\"DATA_GENER\
+                  ATOR_SCHEMA\".\"STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID\"
+                  \"STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID\"\r
+
+                  \      where\r
+
+                  \        STG_DG_PRODUCT_WITH_TEMPLATE.NFC2C\
+                  ODE =
+                  substr(STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID.NFC123_CODE,0,2)
+                  and
+                  length(STG_DG_EPHMRA_NFC123_WITH_TEMPLATE_ID.NFC123_CODE)>=3\r
+
+                  \    ) -1,\r
+
+                  \    0)"
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 422
+              stepCounter: 24
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ATC4_TEMPLATE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: "CEIL(\r
+
+                  \    1 + uniform(0 :: float, 1 :: float,
+                  random()) *(\r
+
+                  \      SELECT\r
+
+                  \        COUNT(1)\r
+
+                  \      FROM\r
+
+                  \        \"DATA_GENERATOR_DB\".\"DATA_GENER\
+                  ATOR_SCHEMA\".\"STG_DG_WHO_ATC_WITH_TEMPLATE_ID\"
+                  \"STG_DG_WHO_ATC_WITH_TEMPLATE_ID\"\r
+
+                  \      where\r
+
+                  \        STG_DG_PRODUCT_WITH_TEMPLATE.ATC3_\
+                  CODE = STG_DG_WHO_ATC_WITH_TEMPLATE_ID.ATC3_CODE) -1,\r
+
+                  \    0\r
+
+                  \  )"
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 431
+              stepCounter: "24"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MOL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: "CEIL(\r
+
+                  \    1 + uniform(0 :: float, 1 :: float,
+                  random()) *(\r
+
+                  \      SELECT\r
+
+                  \        COUNT(1)\r
+
+                  \      FROM\r
+
+                  \        \"DATA_GENERATOR_DB\".\"DATA_GENER\
+                  ATOR_SCHEMA\".\"STG_DG_MOLECULES\" \"STG_DG_MOLECULES\") -1,\r
+
+                  \    0\r
+
+                  \  )"
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 595
+              stepCounter: "24"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: TDI_PROD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.TDI_PROD_ID_SEQ.NEXTVAL
+            systemColumnType: None
+            transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_PRODUCT_IDS_WITH_TEMPLATE: "53"
+              STG_DG_PRODUCT_WITH_TEMPLATE: "54"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_IDS_WITH_TEMPLATE
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_WITH_TEMPLATE
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_PRODUCT_IDS_WITH_TEMPLATE') }}
+                \"STG_DG_PRODUCT_IDS_WITH_TEMPLATE\"\r
+
+                INNER JOIN {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_PRODUCT_WITH_TEMPLATE') }}
+                \"STG_DG_PRODUCT_WITH_TEMPLATE\"\r
+
+                ON
+                \"STG_DG_PRODUCT_IDS_WITH_TEMPLATE\".\"TEMPLATE_PROD_ID\" =
+                \"STG_DG_PRODUCT_WITH_TEMPLATE\".\"PRODUCT_TEMPLATE_ID\""
+            name: STG_DG_PRODUCT_PRE
+            noLinkRefs: []
+      name: STG_DG_PRODUCT_PRE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "24"

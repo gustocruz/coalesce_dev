@@ -1,0 +1,110 @@
+steps:
+  PANELREF-45:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 3
+      locationName: IMS_MIDAS_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 307
+              stepCounter: 45
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PANEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 299
+                    stepCounter: "44"
+                transform: ""
+          - columnReference:
+              columnCounter: 308
+              stepCounter: 45
+            dataType: VARCHAR(100)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PANEL_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 300
+                    stepCounter: "44"
+                transform: ""
+          - columnReference:
+              columnCounter: 309
+              stepCounter: 45
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHANNEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 301
+                    stepCounter: "44"
+                transform: ""
+          - columnReference:
+              columnCounter: 310
+              stepCounter: 45
+            dataType: VARCHAR(30)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 302
+                    stepCounter: "44"
+                transform: ""
+          - columnReference:
+              columnCounter: 311
+              stepCounter: 45
+            dataType: VARCHAR(60)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ISO2_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 303
+                    stepCounter: "44"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_PANELS: "44"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PANELS
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_PANELS') }}
+                "STG_DG_PANELS"
+            name: PANELREF
+            noLinkRefs: []
+      name: PANELREF
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "45"

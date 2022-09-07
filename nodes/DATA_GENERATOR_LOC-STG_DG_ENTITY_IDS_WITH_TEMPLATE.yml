@@ -1,0 +1,104 @@
+steps:
+  STG_DG_ENTITY_IDS_WITH_TEMPLATE-63:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 440
+              stepCounter: "63"
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 439
+                    stepCounter: "62"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 441
+              stepCounter: 63
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: TEMPLATE_ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: CEIL(1 + uniform(0::float, 1::float, random())*(SELECT COUNT(1) FROM
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_ENTITY_DEFINITION
+                  PD,
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS
+                  GP where GP.MARKET_CODE = PD.MARKET_CODE)-1,0)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 475
+              stepCounter: 63
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: TEMPLATE_COUNTRY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: CEIL(1 + uniform(0::float, 1::float, random())*(SELECT
+                  NUMBER_OF_COUNTRIES FROM
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS
+                  GP)-1,0)
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_ENTITY_IDS: "62"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_ENTITY_IDS
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_ENTITY_IDS') }}
+                "STG_DG_ENTITY_IDS"
+            name: STG_DG_ENTITY_IDS_WITH_TEMPLATE
+            noLinkRefs: []
+      name: STG_DG_ENTITY_IDS_WITH_TEMPLATE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "63"

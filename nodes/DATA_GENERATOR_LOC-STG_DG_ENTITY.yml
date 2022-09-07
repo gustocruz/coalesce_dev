@@ -1,0 +1,177 @@
+steps:
+  STG_DG_ENTITY-74:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 533
+              stepCounter: "74"
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 448
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 534
+              stepCounter: "74"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_BASE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 449
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 535
+              stepCounter: "74"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MARKET_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 450
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 536
+              stepCounter: "74"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 451
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 537
+              stepCounter: "74"
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: IS_ENABLED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 452
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 538
+              stepCounter: "74"
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ALLOW_CHILDS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 453
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 539
+              stepCounter: "74"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY_NUM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 477
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 540
+              stepCounter: "74"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY_ISO2_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 492
+                    stepCounter: "65"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 628
+              stepCounter: 74
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ENTITY_REF_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.TDI_ENTITY_ID_SEQ.NEXTVAL
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_ENTITY_PRE: "65"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_ENTITY_PRE
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_ENTITY_PRE') }}
+                \"STG_DG_ENTITY_PRE\"\r
+
+                --WHERE \"STG_DG_ENTITY_PRE\".\"ENTITY_TYPE\" IN
+                ('RESELLER', 'BOTH')"
+            name: STG_DG_ENTITY
+            noLinkRefs: []
+      name: STG_DG_ENTITY
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "74"

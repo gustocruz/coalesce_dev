@@ -1,0 +1,79 @@
+steps:
+  STG_DG_PRODUCT_IDS-38:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: "insert into
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.\"STG_DG_PRODUCT_IDS\"\r
+
+          with CTE as  \r
+
+          (  \r
+
+          \ select 1 as prod_id  \r
+
+          \ union all  \r
+
+          \ select prod_id +1 \r
+
+          \   from CTE\r
+
+          \      ,
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS GP \r
+
+          \  where prod_id < GP.NUMBER_OF_PRODUCTS \r
+
+          ) \r
+
+          select CTE.prod_id\r
+
+          \    /* , CEIL(1 + uniform(0::float, 1::float,
+          random())*(SELECT COUNT(1) FROM
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_PRODUCT_DEFINITION PD,
+          DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.DG_GLOBAL_PARAMETERS GP where
+          GP.MARKET_CODE = PD.MARKET_CODE)-1,0) AS TEMPLATE_PROD_ID */\r
+
+          \  from CTE;"
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 248
+              stepCounter: 38
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PROD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: where 1=0
+            name: STG_DG_PRODUCT_IDS
+            noLinkRefs: []
+      name: STG_DG_PRODUCT_IDS
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "38"

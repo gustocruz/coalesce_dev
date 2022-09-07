@@ -1,0 +1,68 @@
+steps:
+  PERIODREF-50:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 3
+      locationName: IMS_MIDAS_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 345
+              stepCounter: 50
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: PERIOD_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 605
+                    stepCounter: "82"
+                transform: ""
+          - columnReference:
+              columnCounter: 348
+              stepCounter: 50
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PERIOD_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: "\"STG_DG_DATE_DIMENSION\".\"DAY\" || ' ' ||
+                  \"STG_DG_DATE_DIMENSION\".MONTHNAME || ' ' ||
+                  \"STG_DG_DATE_DIMENSION\".\"YEAR\""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_DATE_DIMENSION: "82"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_DATE_DIMENSION
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_DATE_DIMENSION') }}
+                "STG_DG_DATE_DIMENSION"
+            name: PERIODREF
+            noLinkRefs: []
+      name: PERIODREF
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "50"

@@ -1,0 +1,276 @@
+steps:
+  STG_DG_TRANSACTION-79:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 577
+              stepCounter: "79"
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: TRANSACTION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.TDI_PROD_ID_SEQ.NEXTVAL
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 578
+              stepCounter: "79"
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MANUFACTURER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: '"ENTITY_MAN"."ENTITY_ID"'
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 579
+              stepCounter: "79"
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: RETAILER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 455
+                    stepCounter: "66"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 580
+              stepCounter: "79"
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PRODUCT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 115
+                    stepCounter: "25"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 581
+              stepCounter: "79"
+            config: {}
+            dataType: number(10,2)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: 'CEIL("DG_GLOBAL_PARAMETERS"."MIN_TRANSACIONS" + uniform(0 :: float,
+                  1 :: float, random()) *
+                  ("DG_GLOBAL_PARAMETERS"."MAX_TRANSACIONS" -
+                  "DG_GLOBAL_PARAMETERS"."MIN_TRANSACIONS")-1, 0)'
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 582
+              stepCounter: "79"
+            config: {}
+            dataType: number(10,2)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 119
+                    stepCounter: "25"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 583
+              stepCounter: "79"
+            config: {}
+            dataType: number(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: COUNTRY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 459
+                    stepCounter: "66"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 584
+              stepCounter: "79"
+            config: {}
+            dataType: DATE
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: TRANSACTION_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 614
+                    stepCounter: "83"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DATE: "83"
+              DG_GLOBAL_PARAMETERS: "77"
+              ENTITY: "66"
+              ENTITY_MAN: "66"
+              PRODUCT: "25"
+              STG_DG_ENTITY: "74"
+              STG_DG_MNFREF_PRE: "73"
+              STG_DG_PRODUCT_MNF: "72"
+              STG_DG_PRODUCT_PRE: "24"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_PRE
+              - locationName: COALESCE_DEV
+                nodeName: PRODUCT
+              - locationName: COALESCE_DEV
+                nodeName: ENTITY
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_MNF
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_MNFREF_PRE
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_ENTITY
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_GLOBAL_PARAMETERS
+              - locationName: COALESCE_DEV
+                nodeName: DATE
+            join:
+              joinCondition: "FROM {{ ref('COALESCE_DEV', 'PRODUCT') }} \"PRODUCT\"\r
+
+                \   , {{ ref('COALESCE_DEV', 'DATE') }}
+                \"DATE\"\r
+
+                \   , {{ ref('COALESCE_DEV', 'ENTITY') }}
+                \"ENTITY\"\r
+
+                \   , {{ ref('COALESCE_DEV', 'ENTITY') }}
+                \"ENTITY_MAN\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'DG_GLOBAL_PARAMETERS') }} \"DG_GLOBAL_PARAMETERS\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_PRODUCT_MNF') }} \"STG_DG_PRODUCT_MNF\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_PRODUCT_PRE') }} \"STG_DG_PRODUCT_PRE\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_MNFREF_PRE') }} \"STG_DG_MNFREF_PRE\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_ENTITY') }} \"STG_DG_ENTITY\"\r
+
+                WHERE \"ENTITY\".\"ENTITY_TYPE\" in ('RESELLER',
+                'BOTH')\r
+
+                \ AND \"ENTITY_MAN\".\"ENTITY_TYPE\" in
+                ('PRODUCER', 'BOTH')\r
+
+                \ AND \"STG_DG_PRODUCT_MNF\".\"PACK_ID\" =
+                \"STG_DG_PRODUCT_PRE\".\"PRODUCT_ID\"\r
+
+                \ AND \"STG_DG_PRODUCT_PRE\".\"TDI_PROD_ID\" =
+                \"PRODUCT\".\"PRODUCT_ID\"\r
+
+                \ AND \"STG_DG_PRODUCT_MNF\".\"MNF_TEMPLATE_ID\"
+                = \"STG_DG_MNFREF_PRE\".\"MNF_TEMPLATE_ID\"\r
+
+                \ AND \"ENTITY_MAN\".\"ENTITY_ID\" =
+                \"STG_DG_ENTITY\".\"ENTITY_REF_ID\"\r
+
+                \ AND \"STG_DG_ENTITY\".\"ENTITY_ID\" =
+                \"STG_DG_MNFREF_PRE\".\"ENTITY_ID\"\r\n"
+            name: STG_DG_TRANSACTION
+            noLinkRefs: []
+      name: STG_DG_TRANSACTION
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "79"

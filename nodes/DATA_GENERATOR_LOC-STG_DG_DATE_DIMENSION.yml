@@ -1,0 +1,163 @@
+steps:
+  STG_DG_DATE_DIMENSION-82:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 605
+              stepCounter: "82"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 597
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 606
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 598
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 607
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 599
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 608
+              stepCounter: "82"
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MONTHNAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 600
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 609
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 601
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 610
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAYOFWEEK
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 602
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 611
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WEEKOFYEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 603
+                    stepCounter: "81"
+                transform: ""
+          - columnReference:
+              columnCounter: 612
+              stepCounter: "82"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAYOFYEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 604
+                    stepCounter: "81"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DG_DATE_DIMENSION: "81"
+              DG_GLOBAL_PARAMETERS: "77"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_GLOBAL_PARAMETERS
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_DATE_DIMENSION
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'DG_DATE_DIMENSION') }}
+                \"DG_DATE_DIMENSION\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'DG_GLOBAL_PARAMETERS') }} \"DG_GLOBAL_PARAMETERS\"\r
+
+                WHERE \"DG_DATE_DIMENSION\".\"DATE\" BETWEEN
+                \"DG_GLOBAL_PARAMETERS\".\"START_DATE\" AND
+                \"DG_GLOBAL_PARAMETERS\".\"END_DATE\""
+            name: STG_DG_DATE_DIMENSION
+            noLinkRefs: []
+      name: STG_DG_DATE_DIMENSION
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "82"

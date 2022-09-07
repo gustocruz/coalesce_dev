@@ -1,0 +1,133 @@
+steps:
+  STG_DG_ENTITY_WITH_TEMPLATE-64:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 447
+              stepCounter: "64"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ENTITY_TEMPLATE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: row_number() over (order by DG_ENTITY_DEFINITION.ENTITY_BASE_NAME
+                  ASC)
+            systemColumnType: None
+            transform: ""
+          - columnReference:
+              columnCounter: 442
+              stepCounter: "64"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_BASE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 493
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 443
+              stepCounter: "64"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MARKET_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 494
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 444
+              stepCounter: "64"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTITY_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 495
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 445
+              stepCounter: "64"
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: IS_ENABLED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 497
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 446
+              stepCounter: "64"
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ALLOW_CHILDS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 496
+                    stepCounter: "70"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DG_ENTITY_DEFINITION: "70"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_ENTITY_DEFINITION
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_ENTITY_DEFINITION') }}
+                "DG_ENTITY_DEFINITION"
+            name: STG_DG_ENTITY_WITH_TEMPLATE
+            noLinkRefs: []
+      name: STG_DG_ENTITY_WITH_TEMPLATE
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "64"

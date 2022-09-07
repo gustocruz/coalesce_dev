@@ -1,0 +1,47 @@
+steps:
+  DG_EPHMRA_NFC123-36:
+    operation:
+      database: ""
+      dataset: ""
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 237
+              stepCounter: 36
+            config: {}
+            dataType: VARCHAR(10)
+            defaultValue: ""
+            description: ""
+            name: NFC123_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 238
+              stepCounter: 36
+            config: {}
+            dataType: VARCHAR(100)
+            defaultValue: ""
+            description: ""
+            name: NFC123_NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_EPHMRA_NFC123') }}
+      name: DG_EPHMRA_NFC123
+      schema: ""
+      sqlType: Source
+      table: DG_EPHMRA_NFC123
+      type: sourceInput
+    stepCounter: "36"

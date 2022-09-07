@@ -1,0 +1,69 @@
+steps:
+  STG_DG_MOLECULES-47:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 322
+              stepCounter: 47
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOL_LIST_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 318
+                    stepCounter: "46"
+                transform: ""
+          - columnReference:
+              columnCounter: 323
+              stepCounter: 47
+            dataType: VARCHAR(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOL_LIST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 319
+                    stepCounter: "46"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DG_MOLECULES: "46"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: DG_MOLECULES
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_MOLECULES') }}
+                "DG_MOLECULES"
+            name: STG_DG_MOLECULES
+            noLinkRefs: []
+      name: STG_DG_MOLECULES
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "47"

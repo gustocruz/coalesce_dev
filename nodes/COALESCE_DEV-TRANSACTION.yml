@@ -1,0 +1,151 @@
+steps:
+  TRANSACTION-80:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: COALESCE_DEV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 585
+              stepCounter: "80"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANSACTION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 577
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 586
+              stepCounter: "80"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MANUFACTURER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 578
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 587
+              stepCounter: "80"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RETAILER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 579
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 588
+              stepCounter: "80"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 580
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 589
+              stepCounter: "80"
+            dataType: number(10,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 581
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 590
+              stepCounter: "80"
+            dataType: number(10,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 582
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 591
+              stepCounter: "80"
+            dataType: number(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 583
+                    stepCounter: "79"
+                transform: ""
+          - columnReference:
+              columnCounter: 592
+              stepCounter: "80"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANSACTION_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 584
+                    stepCounter: "79"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_TRANSACTION: "79"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_TRANSACTION
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_TRANSACTION') }}
+                "STG_DG_TRANSACTION"
+            name: TRANSACTION
+            noLinkRefs: []
+      name: TRANSACTION
+      overrideSQL: false
+      schema: ""
+      sqlType: Fact
+      type: sql
+    stepCounter: "80"

@@ -1,0 +1,189 @@
+steps:
+  STG_DG_PANELS-44:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 4
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 299
+              stepCounter: "44"
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PANEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.IMS_PANEL_ID_SEQ.NEXTVAL
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 300
+              stepCounter: "44"
+            config: {}
+            dataType: VARCHAR(100)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PANEL_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: "\"STG_DG_CHANNELS\".\"CHANNEL_DESC\" || ' - ' ||
+                  \"STG_DG_COUNTRIES\".\"COUNTRY_NAME\""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 301
+              stepCounter: "44"
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: CHANNEL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 279
+                    stepCounter: "41"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 302
+              stepCounter: "44"
+            config: {}
+            dataType: VARCHAR(30)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: COUNTRY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: SUBSTR("STG_DG_COUNTRIES"."COUNTRY_NAME",0,30)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 303
+              stepCounter: "44"
+            config: {}
+            dataType: VARCHAR(60)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: ISO2_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 304
+                    stepCounter: "22"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 530
+              stepCounter: "44"
+            config: {}
+            dataType: INTEGER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MNF_TEMPLATE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: CEIL(1 + uniform(0::float, 1::float, random())*(SELECT COUNT(1) FROM
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA."STG_DG_ENTITY_PRE" PD
+                  WHERE PD."ENTITY_TYPE" in ('PRODUCER', 'BOTH'))-1,0)
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_CHANNELS: "41"
+              STG_DG_COUNTRIES: "22"
+              STG_DG_ENTITY_PRE: "65"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_COUNTRIES
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_CHANNELS
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_ENTITY_PRE
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_CHANNELS') }}
+                \"STG_DG_CHANNELS\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_COUNTRIES') }} \"STG_DG_COUNTRIES\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_ENTITY_PRE') }} \"STG_DG_ENTITY_PRE\"\r
+
+                WHERE \"STG_DG_ENTITY_PRE\".\"ENTITY_TYPE\" in
+                ('PRODUCER', 'BOTH')\r
+
+                \  AND
+                \"STG_DG_ENTITY_PRE\".\"COUNTRY_ISO2_CODE\" =
+                \"STG_DG_COUNTRIES\".\"COUNTRY_ALPHA_2_CODE\"\r
+
+                \   "
+            name: STG_DG_PANELS
+            noLinkRefs: []
+      name: STG_DG_PANELS
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "44"

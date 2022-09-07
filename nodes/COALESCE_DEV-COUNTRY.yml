@@ -1,0 +1,66 @@
+steps:
+  COUNTRY-35:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: TRUNCATE TABLE testing_data_ingestion.public.country;
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 1
+      locationName: COALESCE_DEV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 229
+              stepCounter: 35
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: COUNTRY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 304
+                    stepCounter: "22"
+                transform: ""
+          - columnReference:
+              columnCounter: 230
+              stepCounter: 35
+            dataType: VARCHAR(64)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COUNTRY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 93
+                    stepCounter: "22"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_COUNTRIES
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_COUNTRIES') }}
+                "STG_DG_COUNTRIES"
+            name: COUNTRY
+            noLinkRefs: []
+      name: COUNTRY
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "35"

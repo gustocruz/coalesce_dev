@@ -1,0 +1,137 @@
+steps:
+  DG_PRODUCT_DEFINITION-55:
+    operation:
+      database: ""
+      dataset: ""
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 383
+              stepCounter: 55
+            config: {}
+            dataType: VARCHAR(70)
+            defaultValue: ""
+            description: ""
+            name: PROD_BASE_NAME
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 384
+              stepCounter: 55
+            config: {}
+            dataType: VARCHAR(10)
+            defaultValue: ""
+            description: ""
+            name: MARKET_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 385
+              stepCounter: 55
+            config: {}
+            dataType: NUMBER(10,2)
+            defaultValue: ""
+            description: ""
+            name: MIN_PRICE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 386
+              stepCounter: 55
+            config: {}
+            dataType: NUMBER(10,2)
+            defaultValue: ""
+            description: ""
+            name: MAX_PRICE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 387
+              stepCounter: 55
+            config: {}
+            dataType: VARCHAR(30)
+            defaultValue: ""
+            description: ""
+            name: PACKAGING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 388
+              stepCounter: 55
+            config: {}
+            dataType: VARCHAR(3)
+            defaultValue: ""
+            description: ""
+            name: ATC3_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 389
+              stepCounter: 55
+            config: {}
+            dataType: VARCHAR(2)
+            defaultValue: ""
+            description: ""
+            name: NFC_CODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 390
+              stepCounter: 55
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: IS_ENABLED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'DG_PRODUCT_DEFINITION') }}
+      name: DG_PRODUCT_DEFINITION
+      schema: ""
+      sqlType: Source
+      table: DG_PRODUCT_DEFINITION
+      type: sourceInput
+    stepCounter: "55"

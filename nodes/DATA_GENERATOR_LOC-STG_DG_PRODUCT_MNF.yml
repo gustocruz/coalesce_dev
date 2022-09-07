@@ -1,0 +1,202 @@
+steps:
+  STG_DG_PRODUCT_MNF-72:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 509
+              stepCounter: "72"
+            dataType: NUMBER(38)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PACK_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 412
+                    stepCounter: "59"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 519
+              stepCounter: 72
+            config: {}
+            dataType: NUMBER(38)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MNF_TEMPLATE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: CEIL(1 + uniform(0::float, 1::float, random())*(SELECT COUNT(1) FROM
+                  DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA."STG_DG_ENTITY_PRE" PD
+                  WHERE PD."ENTITY_TYPE" in ('PRODUCER', 'BOTH'))-1,0)
+            systemColumnType: None
+            transform: ""
+          - columnReference:
+              columnCounter: 516
+              stepCounter: "72"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC4_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 424
+                    stepCounter: "59"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 520
+              stepCounter: 72
+            config: {}
+            dataType: VARCHAR(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: NFC123_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 420
+                    stepCounter: "59"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - columnReference:
+              columnCounter: 518
+              stepCounter: "72"
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOL_LIST_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 429
+                    stepCounter: "59"
+                transform: ""
+          - columnReference:
+              columnCounter: 510
+              stepCounter: "72"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRD_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 413
+                    stepCounter: "59"
+                transform: ""
+          - columnReference:
+              columnCounter: 512
+              stepCounter: "72"
+            dataType: VARCHAR(70)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SCIENTIFIC_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 415
+                    stepCounter: "59"
+                transform: ""
+          - columnReference:
+              columnCounter: 511
+              stepCounter: "72"
+            dataType: VARCHAR(30)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PCK_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 414
+                    stepCounter: "59"
+                transform: ""
+          - columnReference:
+              columnCounter: 513
+              stepCounter: "72"
+            dataType: NUMBER(5,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 416
+                    stepCounter: "59"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 629
+              stepCounter: "72"
+            config: {}
+            dataType: NUMBER(38)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PACK_REF_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: DATA_GENERATOR_DB.DATA_GENERATOR_SCHEMA.IMS_PROD_ID_SEQ.NEXTVAL
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_PRODUCT_NFC_ATC: "59"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_PRODUCT_NFC_ATC
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_PRODUCT_NFC_ATC') }}
+                "STG_DG_PRODUCT_NFC_ATC"
+            name: STG_DG_PRODUCT_MNF
+            noLinkRefs: []
+      name: STG_DG_PRODUCT_MNF
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "72"

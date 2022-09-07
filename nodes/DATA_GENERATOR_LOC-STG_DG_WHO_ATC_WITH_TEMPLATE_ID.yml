@@ -1,0 +1,127 @@
+steps:
+  STG_DG_WHO_ATC_WITH_TEMPLATE_ID-58:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: DATA_GENERATOR_LOC
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 406
+              stepCounter: "58"
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC4_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 177
+                    stepCounter: "29"
+                transform: STG_DG_WHO_ATC4."ATC_CODE"
+          - columnReference:
+              columnCounter: 407
+              stepCounter: "58"
+            dataType: VARCHAR(128)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC4_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 178
+                    stepCounter: "29"
+                transform: STG_DG_WHO_ATC4."ATC_NAME"
+          - columnReference:
+              columnCounter: 408
+              stepCounter: "58"
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC3_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 179
+                    stepCounter: "29"
+                transform: STG_DG_WHO_ATC3."ATC_CODE"
+          - columnReference:
+              columnCounter: 409
+              stepCounter: "58"
+            dataType: VARCHAR(128)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC3_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 180
+                    stepCounter: "29"
+                transform: STG_DG_WHO_ATC3."ATC_NAME"
+          - columnReference:
+              columnCounter: 411
+              stepCounter: "58"
+            dataType: INTEGER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC4_TEMPLATE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 182
+                    stepCounter: "29"
+                transform: "row_number() over (\r
+
+                  \    partition by STG_DG_WHO_ATC3.ATC_CODE\r
+
+                  \    order by\r
+
+                  \      STG_DG_WHO_ATC4.ATC_CODE ASC\r
+
+                  \  )"
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_WHO_ATC3: "29"
+              STG_DG_WHO_ATC4: "29"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_WHO_ATC
+            join:
+              joinCondition: "FROM {{ ref('DATA_GENERATOR_LOC', 'STG_DG_WHO_ATC') }}
+                \"STG_DG_WHO_ATC4\"\r
+
+                \   , {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_WHO_ATC') }} \"STG_DG_WHO_ATC3\"\r
+
+                WHERE LENGTH(STG_DG_WHO_ATC4.ATC_CODE)=4 AND
+                SUBSTR(STG_DG_WHO_ATC4.ATC_CODE, 0, 3) =
+                STG_DG_WHO_ATC3.ATC_CODE"
+            name: STG_DG_WHO_ATC_WITH_TEMPLATE_ID
+            noLinkRefs: []
+      name: STG_DG_WHO_ATC_WITH_TEMPLATE_ID
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "58"

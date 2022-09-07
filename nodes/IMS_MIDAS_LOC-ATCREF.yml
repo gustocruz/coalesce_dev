@@ -1,0 +1,97 @@
+steps:
+  ATCREF-32:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+      database: ""
+      dependencies: []
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: 3
+      locationName: IMS_MIDAS_LOC
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 195
+              stepCounter: 32
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            isBusinessKey: true
+            name: ATC4_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 406
+                    stepCounter: "58"
+                transform: ""
+          - columnReference:
+              columnCounter: 196
+              stepCounter: 32
+            dataType: VARCHAR(128)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC4_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 407
+                    stepCounter: "58"
+                transform: ""
+          - columnReference:
+              columnCounter: 197
+              stepCounter: 32
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC3_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 408
+                    stepCounter: "58"
+                transform: ""
+          - columnReference:
+              columnCounter: 198
+              stepCounter: 32
+            dataType: VARCHAR(128)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ATC3_DESC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 409
+                    stepCounter: "58"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_DG_WHO_ATC_WITH_TEMPLATE_ID: "58"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: DATA_GENERATOR_LOC
+                nodeName: STG_DG_WHO_ATC_WITH_TEMPLATE_ID
+            join:
+              joinCondition: FROM {{ ref('DATA_GENERATOR_LOC',
+                'STG_DG_WHO_ATC_WITH_TEMPLATE_ID') }}
+                "STG_DG_WHO_ATC_WITH_TEMPLATE_ID"
+            name: ATCREF
+            noLinkRefs: []
+      name: ATCREF
+      overrideSQL: false
+      schema: ""
+      sqlType: Dimension
+      type: sql
+    stepCounter: "32"
