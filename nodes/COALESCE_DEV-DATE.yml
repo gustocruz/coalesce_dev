@@ -73,6 +73,48 @@ steps:
                   - columnCounter: 609
                     stepCounter: "82"
                 transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 1
+              stepCounter: "83"
+            config: {}
+            dataType: NUMBER(2,0)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: DAY_OF_WEEK
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 611
+                    stepCounter: "82"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 2
+              stepCounter: "83"
+            config: {}
+            dataType: VARCHAR(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SHORT_MONTH_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 608
+                    stepCounter: "82"
+                transform: ""
+            systemColumnType: None
+            transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
